@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="sg.edu.rp.c346.healthylifestylelearningguide.basicQuiz">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:text="Which is NOT a correct manner of staying healthy?"
+        android:textSize="20dp"
+        android:padding="8dp"
+        android:layout_marginBottom="40dp"
+        android:id="@+id/question1"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Spending 2 hours per day exercising"
+        android:background="#00bfff"
+        android:textColor="#000"
+        android:padding="8dp"
+        android:layout_marginBottom="24dp"
+        android:id="@+id/choice1"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Drink 8 cups of water everyday"
+        android:background="#00bfff"
+        android:textColor="#000"
+        android:padding="8dp"
+        android:layout_marginBottom="24dp"
+        android:id="@+id/choice2"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Eat fries once per day"
+        android:background="#00bfff"
+        android:textColor="#000"
+        android:padding="8dp"
+        android:layout_marginBottom="100dp"
+        android:id="@+id/choice3"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:background="#a0522d"
+        android:textColor="#000"
+        android:padding="8dp"
+        android:layout_marginBottom="40dp"
+        android:id="@+id/next"/>
+
+
+</LinearLayout>

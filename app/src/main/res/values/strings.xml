@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Healthy Lifestyle Learning Guide</string>
+    <string name="learningGuide">Guides</string>
+    <string name="quiz">Quiz</string>
+    <string name="exercise">Exercise</string>
+    <string name="timeManagement">Time Management</string>
+    <string name="eatingHabit">Eating Habits</string>
+    <string name="stressManagement">Stress Management</string>
+    <string name="next">Next Page</string>
+    <string name="readMore">Click to read more about Strength Exercise</string>
+    <string name="readMoreBalance">Click here to read more about balance</string>
+    <string name="basic">Basic</string>
+    <string name="advanced">Advanced</string>
+</resources>

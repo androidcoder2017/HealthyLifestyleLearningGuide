@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="sg.edu.rp.c346.healthylifestylelearningguide">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".instruction"
+            android:label="Instruction" />
+        <activity
+            android:name=".LearningGuide"
+            android:label="Categories on lifestyle" />
+        <activity
+            android:name=".exercise"
+            android:label="Exercise" />
+        <activity
+            android:name=".TimeManagement"
+            android:label="Time Management" />
+        <activity
+            android:name=".EatingHabits"
+            android:label="Eating Habits" />
+        <activity
+            android:name=".StressManagement"
+            android:label="Stress Management" />
+        <activity
+            android:name=".strengthWebPage"
+            android:label="Strength Exercise Details" />
+        <activity
+            android:name=".BalanceWebPage"
+            android:label="Balance Exercise Details" />
+        <activity
+            android:name=".quiz"
+            android:label="Quiz" />
+        <activity
+            android:name=".basicQuiz"
+            android:label="Multiple Choice Questions" />
+        <activity
+            android:name=".advancedQuiz"
+            android:label="Multiple Choice Questions"></activity>
+        <activity android:name=".basicQuizResult"></activity>
+    </application>
+
+</manifest>

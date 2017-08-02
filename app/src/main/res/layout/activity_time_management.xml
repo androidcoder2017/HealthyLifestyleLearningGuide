@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    android:id="@+id/scrollView"
+    tools:context="sg.edu.rp.c346.healthylifestylelearningguide.TimeManagement">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="350px"
+            android:background="@drawable/timemanagement"
+            android:id="@+id/imageView5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#dda0dd"
+            android:textSize="15dp"
+            android:layout_marginBottom="-30dp"
+            android:id="@+id/textViewDescriptionTime" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:layout_marginBottom="-30dp"
+            android:layout_marginLeft="10dp"
+            android:lineSpacingExtra="10dp"
+            android:textSize="20dp"
+            android:id="@+id/textViewTimeSentences" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-30dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:lineSpacingExtra="10dp"
+            android:textColor="#000"
+            android:id="@+id/textViewTimeTips" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="10dp"
+            android:layout_marginBottom="-30dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="16dp"
+            android:id="@+id/textViewTimeMethod1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="10dp"
+            android:textSize="16dp"
+            android:layout_marginBottom="-30dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/textViewTimeMethod2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="10dp"
+            android:textSize="16dp"
+            android:layout_marginBottom="-30dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/textViewTimeMethod3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="10dp"
+            android:textSize="16dp"
+            android:layout_marginBottom="-30dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/textViewTimeMethod4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="10dp"
+            android:textSize="16dp"
+            android:layout_marginBottom="-30dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/textViewTimeMethod5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:layout_margin="10dp"
+            android:id="@+id/textViewLink" />
+
+    </LinearLayout>
+
+</ScrollView>

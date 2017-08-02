@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="sg.edu.rp.c346.healthylifestylelearningguide.advancedQuiz"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="60"
+        android:id="@+id/times"
+        android:layout_gravity="center"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:text="Which is NOT a correct manner of staying healthy?"
+        android:textSize="15dp"
+        android:padding="8dp"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/questions"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Spending 2 hours per day exercising"
+        android:background="#00bfff"
+        android:textColor="#000"
+        android:padding="8dp"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/choices1"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Drink 8 cups of water everyday"
+        android:background="#00bfff"
+        android:textColor="#000"
+        android:padding="8dp"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/choices2"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Eat fries once per day"
+        android:background="#00bfff"
+        android:textColor="#000"
+        android:padding="8dp"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/choices3"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Eat fries once per day"
+        android:background="#00bfff"
+        android:textColor="#000"
+        android:padding="8dp"
+        android:layout_marginBottom="30dp"
+        android:id="@+id/choices4"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:background="#a0522d"
+        android:textColor="#000"
+        android:padding="8dp"
+        android:layout_marginBottom="24dp"
+        android:id="@+id/nextz"/>
+
+</LinearLayout>
