@@ -32,6 +32,7 @@ public class advancedQuiz extends AppCompatActivity {
     private Button nButtonChoices3;
     private Button nButtonChoices4;
 
+    int count = 0;
 
     private String nAnswers;
     private int nScores = 0;
@@ -49,21 +50,20 @@ public class advancedQuiz extends AppCompatActivity {
         final MediaPlayer correctSound = MediaPlayer.create(this, R.raw.correct);
         final MediaPlayer timeupSound = MediaPlayer.create(this, R.raw.timeup);
 
-        nQuestionsView = (TextView)findViewById(R.id.questions);
-        nButtonChoices1 = (Button)findViewById(R.id.choices1);
-        nButtonChoices2 = (Button)findViewById(R.id.choices2);
-        nButtonChoices3 = (Button)findViewById(R.id.choices3);
-        nButtonChoices4 = (Button)findViewById(R.id.choices4);
+        nQuestionsView = (TextView) findViewById(R.id.questions);
+        nButtonChoices1 = (Button) findViewById(R.id.choices1);
+        nButtonChoices2 = (Button) findViewById(R.id.choices2);
+        nButtonChoices3 = (Button) findViewById(R.id.choices3);
+        nButtonChoices4 = (Button) findViewById(R.id.choices4);
 
-        tvTime = (TextView)findViewById(R.id.times);
-        btnNextz = (Button)findViewById(R.id.nextz);
+        tvTime = (TextView) findViewById(R.id.times);
+        btnNextz = (Button) findViewById(R.id.nextz);
 
 
         updateQuestions();
 
 
-
-        final CountDownTimer runTimer =  new CountDownTimer(90000, 1000) {
+        final CountDownTimer runTimer = new CountDownTimer(90000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 String text = String.format(Locale.getDefault(), "Time remaining %02d min: %02d sec",
@@ -92,7 +92,7 @@ public class advancedQuiz extends AppCompatActivity {
                         } else if (nScores <= 10) {
                             builder2.setMessage("Your final score is " + nScores + ". Not bad! You have show some good understand!" +
                                     " You can try again to improve your score!");
-                        } else if(nScores <= 13) {
+                        } else if (nScores <= 13) {
                             builder2.setMessage("Your final score is " + nScores + ". Amazing! You are close to getting" +
                                     " close to score perfect marks!");
                         } else {
@@ -119,6 +119,8 @@ public class advancedQuiz extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (nButtonChoices1.getText() == nAnswers) {
+                    count++;
+                    btnNextz.setEnabled(true);
                     correctSound.start();
                     nScores = nScores + 1;
                     nButtonChoices1.setEnabled(false);
@@ -129,12 +131,15 @@ public class advancedQuiz extends AppCompatActivity {
                     Toast.makeText(advancedQuiz.this, "correct", Toast.LENGTH_SHORT).show();
 
                 } else {
+                    count++;
+                    btnNextz.setEnabled(true);
                     wrongSound.start();
                     Toast.makeText(advancedQuiz.this, "wrong", Toast.LENGTH_SHORT).show();
                     nButtonChoices1.setEnabled(false);
                     nButtonChoices2.setEnabled(false);
                     nButtonChoices3.setEnabled(false);
                     nButtonChoices4.setEnabled(false);
+                    nButtonChoices1.getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
 
                 }
             }
@@ -144,6 +149,8 @@ public class advancedQuiz extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (nButtonChoices2.getText() == nAnswers) {
+                    count++;
+                    btnNextz.setEnabled(true);
                     correctSound.start();
                     nScores = nScores + 1;
                     nButtonChoices1.setEnabled(false);
@@ -153,12 +160,15 @@ public class advancedQuiz extends AppCompatActivity {
                     nButtonChoices2.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
                     Toast.makeText(advancedQuiz.this, "correct", Toast.LENGTH_SHORT).show();
                 } else {
+                    count++;
+                    btnNextz.setEnabled(true);
                     wrongSound.start();
                     Toast.makeText(advancedQuiz.this, "wrong", Toast.LENGTH_SHORT).show();
                     nButtonChoices1.setEnabled(false);
                     nButtonChoices2.setEnabled(false);
                     nButtonChoices3.setEnabled(false);
                     nButtonChoices4.setEnabled(false);
+                    nButtonChoices2.getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
                 }
             }
         });
@@ -167,6 +177,8 @@ public class advancedQuiz extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (nButtonChoices3.getText() == nAnswers) {
+                    count++;
+                    btnNextz.setEnabled(true);
                     correctSound.start();
                     nScores = nScores + 1;
                     nButtonChoices1.setEnabled(false);
@@ -176,12 +188,15 @@ public class advancedQuiz extends AppCompatActivity {
                     nButtonChoices3.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
                     Toast.makeText(advancedQuiz.this, "correct", Toast.LENGTH_SHORT).show();
                 } else {
+                    count++;
+                    btnNextz.setEnabled(true);
                     wrongSound.start();
                     Toast.makeText(advancedQuiz.this, "wrong", Toast.LENGTH_SHORT).show();
                     nButtonChoices1.setEnabled(false);
                     nButtonChoices2.setEnabled(false);
                     nButtonChoices3.setEnabled(false);
                     nButtonChoices4.setEnabled(false);
+                    nButtonChoices3.getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
                 }
             }
         });
@@ -190,6 +205,8 @@ public class advancedQuiz extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (nButtonChoices4.getText() == nAnswers) {
+                    count++;
+                    btnNextz.setEnabled(true);
                     correctSound.start();
                     nScores = nScores + 1;
                     nButtonChoices1.setEnabled(false);
@@ -199,87 +216,94 @@ public class advancedQuiz extends AppCompatActivity {
                     nButtonChoices4.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
                     Toast.makeText(advancedQuiz.this, "correct", Toast.LENGTH_SHORT).show();
                 } else {
+                    count++;
+                    btnNextz.setEnabled(true);
                     wrongSound.start();
                     Toast.makeText(advancedQuiz.this, "wrong", Toast.LENGTH_SHORT).show();
                     nButtonChoices1.setEnabled(false);
                     nButtonChoices2.setEnabled(false);
                     nButtonChoices3.setEnabled(false);
                     nButtonChoices4.setEnabled(false);
+                    nButtonChoices4.getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
                 }
             }
         });
 
-        btnNextz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                nextSound.start();
-                updateQuestions();
-                nButtonChoices1.setEnabled(true);
-                nButtonChoices2.setEnabled(true);
-                nButtonChoices3.setEnabled(true);
-                nButtonChoices4.setEnabled(true);
-                nButtonChoices1.getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
-                nButtonChoices2.getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
-                nButtonChoices3.getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
-                nButtonChoices4.getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
+        if (count == 0) {
+            btnNextz.setEnabled(false);
+        }
+            btnNextz.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    nextSound.start();
+                    updateQuestions();
+                    nButtonChoices1.setEnabled(true);
+                    nButtonChoices2.setEnabled(true);
+                    nButtonChoices3.setEnabled(true);
+                    nButtonChoices4.setEnabled(true);
+                    nButtonChoices1.getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
+                    nButtonChoices2.getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
+                    nButtonChoices3.getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
+                    nButtonChoices4.getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
 
 
-                if (nQuestionNumbers == 15) {
-                    btnNextz.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(advancedQuiz.this);
+                    if (nQuestionNumbers == 15) {
+                        btnNextz.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(advancedQuiz.this);
 
-                            builder.setTitle("End");
-                            builder.setMessage("The quiz has ended. Click next to check your score.");
-                            builder.setCancelable(false);
-                            builder.setPositiveButton("Next", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    AlertDialog.Builder builder2 = new AlertDialog.Builder(advancedQuiz.this);
-                                    builder2.setTitle("Result");
-                                    if (nScores <= 5) {
-                                        builder2.setMessage("Your final score is " + nScores +
-                                                ". Do not worry! Just read up some guide to understand how to stay healthy and attempt the quiz again!");
-                                    } else if (nScores <= 7) {
-                                        builder2.setMessage("Your final score is " + nScores + ". You can still improve!");
-                                    } else if (nScores <= 10) {
-                                        builder2.setMessage("Your final score is " + nScores + ". Not bad! You have show some good understand!" +
-                                                " You can try again to improve your score!");
-                                    } else if(nScores <= 13) {
-                                        builder2.setMessage("Your final score is " + nScores + ". Amazing! You are close to getting" +
-                                                " close to score perfect marks!");
-                                    } else {
-                                        builder2.setMessage("Your final score is " + nScores + ". Excellent! You have show how knowledgeable " +
-                                                "you are in maintain your health!");
-                                    }
-                                    builder2.setCancelable(false);
-                                    builder2.setPositiveButton("Back", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            Intent intent = new Intent(getApplicationContext(), quiz.class);
-                                            startActivity(intent);
-                                            advancedQuiz.super.onBackPressed();
+                                builder.setTitle("End");
+                                builder.setMessage("The quiz has ended. Click next to check your score.");
+                                builder.setCancelable(false);
+                                builder.setPositiveButton("Next", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        AlertDialog.Builder builder2 = new AlertDialog.Builder(advancedQuiz.this);
+                                        builder2.setTitle("Result");
+                                        if (nScores <= 5) {
+                                            builder2.setMessage("Your final score is " + nScores +
+                                                    ". Do not worry! Just read up some guide to understand how to stay healthy and attempt the quiz again!");
+                                        } else if (nScores <= 7) {
+                                            builder2.setMessage("Your final score is " + nScores + ". You can still improve!");
+                                        } else if (nScores <= 10) {
+                                            builder2.setMessage("Your final score is " + nScores + ". Not bad! You have show some good understand!" +
+                                                    " You can try again to improve your score!");
+                                        } else if (nScores <= 13) {
+                                            builder2.setMessage("Your final score is " + nScores + ". Amazing! You are close to getting" +
+                                                    " close to score perfect marks!");
+                                        } else {
+                                            builder2.setMessage("Your final score is " + nScores + ". Excellent! You have show how knowledgeable " +
+                                                    "you are in maintain your health!");
                                         }
-                                    });
-                                    builder2.show();
+                                        builder2.setCancelable(false);
+                                        builder2.setPositiveButton("Back", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                Intent intent = new Intent(getApplicationContext(), quiz.class);
+                                                startActivity(intent);
+                                                advancedQuiz.super.onBackPressed();
+                                            }
+                                        });
+                                        builder2.show();
 
-                                }
-                            });
-                            builder.show();
-                            runTimer.cancel();
-                        }
-                    });
+                                    }
+                                });
+                                builder.show();
+                                runTimer.cancel();
+                            }
+                        });
+
+                    }
 
                 }
-
-            }
-        });
-
-
-    }
+            });
+        }
 
     private void updateQuestions() {
+        count = 0;
+        btnNextz.setEnabled(false);
         nQuestionsView.setText(nAdvancedQuestion.getQuestions(nQuestionNumbers));
         nButtonChoices1.setText(nAdvancedQuestion.getChoices1(nQuestionNumbers));
         nButtonChoices2.setText(nAdvancedQuestion.getChoices2(nQuestionNumbers));
@@ -299,19 +323,9 @@ public class advancedQuiz extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle("Quit");
-        builder.setMessage("Are you sure you want to end the quiz?");
+        builder.setMessage("You are not allowed to quit the quiz. Please continue.");
         builder.setCancelable(false);
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-                Intent intent = new Intent(getApplicationContext(), quiz.class);
-                startActivity(intent);
-                advancedQuiz.super.onBackPressed();
-
-            }
-        });
-        builder.setNeutralButton("No",null);
+        builder.setPositiveButton("Continue", null);
         builder.show();
     }
 

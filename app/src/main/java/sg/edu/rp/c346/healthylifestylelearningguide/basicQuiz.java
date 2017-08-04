@@ -10,6 +10,7 @@ import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,6 +33,9 @@ public class basicQuiz extends AppCompatActivity {
     private String nAnswer;
     private int nScore = 0;
     private int nQuestionNumber = 0;
+
+    int goQuestion = 0;
+    int count = 0;
 
     Button btnNext;
 
@@ -60,21 +64,23 @@ public class basicQuiz extends AppCompatActivity {
                 if (nButtonChoice1.getText() == nAnswer) {
                     correctSound.start();
                     nScore = nScore + 1;
-
+                    count++;
+                    btnNext.setEnabled(true);
                     nButtonChoice1.setEnabled(false);
                     nButtonChoice2.setEnabled(false);
                     nButtonChoice3.setEnabled(false);
                     nButtonChoice1.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
-
                     Toast.makeText(basicQuiz.this, "correct", Toast.LENGTH_SHORT).show();
 
                 } else {
+                    count++;
+                    btnNext.setEnabled(true);
                     wrongSound.start();
                     Toast.makeText(basicQuiz.this, "wrong", Toast.LENGTH_SHORT).show();
                     nButtonChoice1.setEnabled(false);
                     nButtonChoice2.setEnabled(false);
                     nButtonChoice3.setEnabled(false);
-
+                    nButtonChoice1.getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
                 }
             }
         });
@@ -85,7 +91,8 @@ public class basicQuiz extends AppCompatActivity {
                 if (nButtonChoice2.getText() == nAnswer) {
                     correctSound.start();
                     nScore = nScore + 1;
-
+                    count++;
+                    btnNext.setEnabled(true);
                     nButtonChoice1.setEnabled(false);
                     nButtonChoice2.setEnabled(false);
                     nButtonChoice3.setEnabled(false);
@@ -93,11 +100,14 @@ public class basicQuiz extends AppCompatActivity {
                     Toast.makeText(basicQuiz.this, "correct", Toast.LENGTH_SHORT).show();
 
                 } else {
+                    count++;
+                    btnNext.setEnabled(true);
                     wrongSound.start();
                     Toast.makeText(basicQuiz.this, "wrong", Toast.LENGTH_SHORT).show();
                     nButtonChoice1.setEnabled(false);
                     nButtonChoice2.setEnabled(false);
                     nButtonChoice3.setEnabled(false);
+                    nButtonChoice2.getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
 
                 }
             }
@@ -109,7 +119,8 @@ public class basicQuiz extends AppCompatActivity {
                 if (nButtonChoice3.getText() == nAnswer) {
                     correctSound.start();
                     nScore = nScore + 1;
-
+                    count++;
+                    btnNext.setEnabled(true);
                     nButtonChoice1.setEnabled(false);
                     nButtonChoice2.setEnabled(false);
                     nButtonChoice3.setEnabled(false);
@@ -117,15 +128,22 @@ public class basicQuiz extends AppCompatActivity {
                     Toast.makeText(basicQuiz.this, "correct", Toast.LENGTH_SHORT).show();
 
                 } else {
+                    nQuestionNumber++;
+                    count++;
+                    btnNext.setEnabled(true);
                     wrongSound.start();
                     Toast.makeText(basicQuiz.this, "wrong", Toast.LENGTH_SHORT).show();
                     nButtonChoice1.setEnabled(false);
                     nButtonChoice2.setEnabled(false);
                     nButtonChoice3.setEnabled(false);
-
+                    nButtonChoice3.getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
                 }
             }
         });
+
+        if (count == 0) {
+            btnNext.setEnabled(false);
+        }
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,6 +156,8 @@ public class basicQuiz extends AppCompatActivity {
                 nButtonChoice1.getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
                 nButtonChoice2.getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
                 nButtonChoice3.getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
+
+
 
                 if (nQuestionNumber == 10) {
                     btnNext.setOnClickListener(new View.OnClickListener() {
@@ -188,6 +208,8 @@ public class basicQuiz extends AppCompatActivity {
     }
 
     private void upDateQuestion(){
+        count = 0;
+        btnNext.setEnabled(false);
         nQuestionView.setText(nBasicQuestion.getQuestion(nQuestionNumber));
         nButtonChoice1.setText(nBasicQuestion.getChoice1(nQuestionNumber));
         nButtonChoice2.setText(nBasicQuestion.getChoice2(nQuestionNumber));
@@ -197,31 +219,14 @@ public class basicQuiz extends AppCompatActivity {
         nQuestionNumber++;
     }
 
-
-
-
-
     @Override
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle("Quit");
-        builder.setMessage("Are you sure you want to end the quiz?");
+        builder.setMessage("You are not allowed to quit the quiz. Please continue.");
         builder.setCancelable(false);
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-                Intent intent = new Intent(getApplicationContext(), quiz.class);
-                startActivity(intent);
-                basicQuiz.super.onBackPressed();
-                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(basicQuiz.this);
-                SharedPreferences.Editor editPref = preferences.edit();
-                editPref.commit();
-                Toast.makeText(basicQuiz.this, "Exited", Toast.LENGTH_SHORT).show();
-            }
-        });
-        builder.setNeutralButton("No",null);
+        builder.setPositiveButton("Continue",null);
         builder.show();
 
     }
